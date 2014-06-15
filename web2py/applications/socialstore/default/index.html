@@ -1,10 +1,6 @@
-{{ extend 'layout.html' }}
+{{extend 'layout.html'}}
 
 {{ block content }}
-  <div id="nav">
-      Chat Dialogue:
-  </div>
-
   <div id="body">
     <div id="inbox">
       {{ for message in messages: }}

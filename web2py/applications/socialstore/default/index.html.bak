@@ -1,8 +1,9 @@
-{{ extend 'layout.html' }}
+{{extend 'layout.html'}}
 
 {{ block content }}
   <div id="nav">
-      Chat Dialogue:
+      <a href="http://github.com/rpedroso/w2pchat">Source Code</a><br>
+      Based on <a href="https://github.com/iurisilvio/bottle-chat">bottle webchat example</a>
   </div>
 
   <div id="body">

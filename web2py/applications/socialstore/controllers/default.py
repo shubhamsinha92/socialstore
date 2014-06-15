@@ -1,6 +1,4 @@
 # -*- coding: utf-8 -*-
-# this file is released under public domain and you can use without limitations
-
 #########################################################################
 ## This is a sample controller
 ## - index is the default action of any application
@@ -8,8 +6,35 @@
 ## - download is for downloading files uploaded in the db (does streaming)
 ## - call exposes all registered services (none by default)
 #########################################################################
+# coding: utf-8
+import chats
 
 
+@auth.requires_login()
+def index():
+    return chats.index(db)
+
+
+@auth.requires_signature()
+def message_new():
+    return chats.message_new(db)
+
+
+@auth.requires_signature()
+def message_updates():
+    # need to unlock the session when using
+    # session file, should not be need it when
+    # using session in db, or in a cookie
+    session._unlock(response)
+    return chats.message_updates(db)
+
+
+def user():
+    return dict(form=auth())
+
+
+'''
+import chats
 def index():
     """
     example action using the internationalization operator T and flash
@@ -87,3 +112,4 @@ def data():
       LOAD('default','data.load',args='tables',ajax=True,user_signature=True)
     """
     return dict(form=crud())
+'''
